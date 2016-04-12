@@ -1,0 +1,13 @@
+CREATE TABLE Samples
+(
+SampleID int,
+Gene varchar(255),
+GenePosition varchar(255),
+Mutationtype varchar(255)  
+);
+
+CREATE TABLE Mutations
+(
+MutationType varchar(255),
+Phenotype varchar(255)
+);
