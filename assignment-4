@@ -1,0 +1,45 @@
+####In the NCBI database each gene identifier is linked to it`s species. But how do I find all the genes belonging for instance to a kingdom
+###in a file where each species is linked to their upper rank, you can find all genes belonging to a particular rank, using a taxonomic 
+##that would look like this
+
+
+@prefix :  <http://biobeat.org/rdf/ns#> .
+:GI_937405203
+  :name "16s";
+  :species  :Bordetella_pertussis .
+:GI_613406718
+  :name "16s";
+  :species :Bordetella_bronchispetica .
+:GI_26110333
+  :name "16s";
+  :species :Escherichia_coli .
+:Bordetella_bronchispetica
+  :genus :Bordetella;
+  :name "Bordetella bronciseptica" .
+:Bordetella_pertussis
+  :genus :Bordetella;
+  :name "Bordetella pertussis" .
+:Escherichia_coli
+  :genus :Escherichia;
+  :name "Escherichia coli" .
+:Escherichia
+  :kingdom :Bacteria;
+  :name "Escherichia" .
+:Bordetella
+  :kingdom :Bacteria;
+  :name "Bordetella" .
+:Bacteria
+  :root "root" .
+ 
+ 
+ 
+ 
+ ###to query alll the Bacteria, you could do this:
+ 
+ SELECT ?id 
+WHERE
+{
+  ?id <http://biobeat.org/rdf/ns#kingdom>  "Bacteria" .
+}
+
+
