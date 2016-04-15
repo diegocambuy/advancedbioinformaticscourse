@@ -1,0 +1,50 @@
+$(function () {
+    $('#container').highcharts({
+        series: [{
+            type: "treemap",
+            layoutAlgorithm: 'stripes',
+            alternateStartingDirection: true,
+            levels: [{
+                level: 1,
+                layoutAlgorithm: 'sliceAndDice',
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold'
+                    }
+                }
+            }],
+            data: [{
+                id: 'Bac',
+                name: 'Bacteriodes',
+                color: "#EC2500"
+            }, {
+                id: 'Flavo',
+                name: 'Flavobacteria',
+                color: "#ECE100"
+            }, {
+                id: 'Sphingo',
+                name: 'Sphingobacteria',
+                color: '#EC9800'
+            }, {
+                name: 'Genus',
+                parent: 'Bac',
+                value: 900
+            }, {
+                name: 'Genus',
+                parent: 'Sphingo',
+                value: 200
+            }, {
+                name: 'Genus',
+                parent: 'Flavo',
+                value: 400
+            }, ]
+        }],
+        title: {
+            text: 'Taxonomy distribuiton of genus'
+        }
+    });
+});
